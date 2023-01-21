@@ -12,7 +12,14 @@ emitter.on('event', function() {
 emitter.emit('event');
 
 emitter.on('eventWithArgument', function(arg) {
-    console.log('Un evento con los siguientes argumentos ha ocurrido: ' + arg.id + ' ' + arg.numbers);
+    console.log('Un evento function con los siguientes argumentos ha ocurrido: ' + arg.id + ' ' + arg.numbers);
 });
 
-emitter.emit('eventWithArgument', {id: 1, numbers: 2});
+emitter.emit('eventWithArgument', {id: 1, numbers: 1});
+
+// Funciones flecha
+emitter.on('eventArrow', (arg) => {
+    console.log('Un evento flecha con los siguientes argumentos ha ocurrido: ' + arg.id + ' ' + arg.numbers);
+});
+
+emitter.emit('eventArrow', {id: 2, numbers: 2});
