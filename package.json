@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "d3-time": "^3.1.0"
-  }
+  },
+  "name": "ejemplo",
+  "description": "Proyectos realizados con tecnologías actuales, digido a aquellas personas que quieran introducirse a al Desarrollo Backend.",
+  "version": "1.0.0",
+  "main": "Dejar los dias enteros",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanmartinc/node-crea-tus-aplicaciones-restfull.git"
+  },
+  "author": "Alan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanmartinc/node-crea-tus-aplicaciones-restfull/issues"
+  },
+  "homepage": "https://github.com/alanmartinc/node-crea-tus-aplicaciones-restfull#readme"
 }
