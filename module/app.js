@@ -1,4 +1,4 @@
-var sumar = require('./sumar.js');
+const sumar = require('./sumar.js');
 
 // Opción 1
 console.log(sumar.sumarDosMasDos());
