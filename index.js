@@ -51,7 +51,7 @@ app.post('/api/cars', (req, res) => {
         year: req.body.year
     }
     coches.push(coche);
-    res.send(coche);
+    res.status(201).send(coche);
 });
 
 app.listen(port, () => console.log('Escuchando puerto: ' + port));
