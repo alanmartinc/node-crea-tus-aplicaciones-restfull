@@ -12,4 +12,8 @@ app.get('/api/cars/list', (req, res) => {
     res.send(['BMW S1', 'AUDI A3', 'Mercedes Clase A']);
 });
 
+app.get('/api/cars/id/:id', (req, res) => {
+    res.send(req.params.id);
+});
+
 app.listen(port, () => console.log('Escuchando puerto: ' + port));
