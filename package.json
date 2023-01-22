@@ -1,12 +1,11 @@
 {
   "dependencies": {
-    "d3-time": "^3.1.0"
+    "d3-time": "^3.1.0",
+    "express": "^4.18.2"
   },
-  "name": "ejemplo",
-  "description": "Proyectos realizados con tecnologías actuales, digido a aquellas personas que quieran introducirse a al Desarrollo Backend.",
+  "name": "Express",
+  "description": "Mi primer proyecto de Express.",
   "version": "1.0.0",
-  "main": "Dejar los dias enteros",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
