@@ -9,23 +9,23 @@ var coches = [
 ];
 
 // Metodo GET
-app.get('/list', (req, res) => {
+router.get('/list', (req, res) => {
     res.send(['BMW S1', 'AUDI A3', 'Mercedes Clase A']);
 });
 
-app.get('/id/:id', (req, res) => {
+router.get('/id/:id', (req, res) => {
     res.send(req.params.id);
 });
 
-app.get('/:company/:model', (req, res) => {
+router.get('/:company/:model', (req, res) => {
     res.send(req.params);
 });
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send(coches);
 });
 
-app.get('/:company', (req, res) => {
+router.get('/:company', (req, res) => {
     const coche = coches.find(coche => coche.company === req.params.company);
 
     if(!coche) {
@@ -36,7 +36,7 @@ app.get('/:company', (req, res) => {
 });
 
 // Metodo POST
-app.post('/1', (req, res) => {
+router.post('/1', (req, res) => {
     var carId = coches.length;
     var coche = {
         id: carId,
@@ -48,7 +48,7 @@ app.post('/1', (req, res) => {
     res.status(201).send(coche);
 });
 
-app.post('/2', (req, res) => {
+router.post('/2', (req, res) => {
     if(!req.body.company || req.body.company.length < 3) {
         res.status(400).send('Introduce la empresa correcta')
         return
@@ -65,7 +65,7 @@ app.post('/2', (req, res) => {
     res.status(201).send(coche);
 });
 
-app.post('/3', [
+router.post('/3', [
     check('company').isLength({min: 3}),
     check('model').isLength({min: 3}),
 ], (req, res) => {
@@ -87,7 +87,7 @@ app.post('/3', [
 });
 
 // Metodo PUT
-app.put('/:id', [
+router.put('/:id', [
     check('company').isLength({min: 3}),
     check('model').isLength({min: 3}),
 ], (req, res) => {
@@ -111,7 +111,7 @@ app.put('/:id', [
 });
 
 // Metodo DELETE
-app.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const coche = coches.find(coche => coche.id === parseInt(req.params.id));
 
     if(!coche) {
@@ -122,3 +122,5 @@ app.delete('/:id', (req, res) => {
     coches.splice(index, 1);
     res.status(200).send('Coche borrado!');
 });
+
+module.exports = router;

@@ -22,3 +22,5 @@ app.use('/api/cars/list', function(req, res, next) {
 app.get('/', function(req, res) {
     res.send('Hello World');
 });
+
+app.listen(port, () => console.log('Escuchando puerto: ' + port));
