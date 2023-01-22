@@ -1,16 +1,14 @@
 // PROMESAS
-/*
-const promesa = new Promise((resolve, reject) => {
+const promesa1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve({id: 1, company: 'Seat', model: 'Leon'});
         // reject(new Error('Se ha producido un error al leer la DB'));
-    }, 4000)
+    }, 2000)
 });
 
-promesa
+promesa1
     .then(result => console.log(result))
     .catch(err => console.log(err.message))
-*/
 
 // PROMESAS ANIDADAS
 function getCar(id) {
@@ -18,7 +16,7 @@ function getCar(id) {
         setTimeout(() => {
             console.log('Obtenido coche 23 de nuestra base de datos');
             resolve({id: 23, company: 'BMW', model: 'X3'});
-        }, 3000)
+        }, 1000)
     });
 }
 
@@ -32,10 +30,10 @@ function getModel(model) {
 }
 
 /*
-const promesa = getCar(23);
+const promesa2 = getCar(23);
 promesa.then(coche => console.log(coche));
 
-promesa
+promesa2
     .then(coche => getModel(coche.model))
     .then(model => console.log(model))
     .catch(err => console.log(err.message))
@@ -53,3 +51,23 @@ async function showModel() {
 }
 
 showModel();
+
+
+// PROMESAS EN PARALELO
+const promesa3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('Leyendo datos de FB');
+        resolve({friends: 100, likes: 200});
+    }, 5000);
+});
+
+const promesa4 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('Leyendo datos de TW');
+        resolve({friends: 300, likes: 900});
+    }, 5000);
+});
+
+Promise.all([promesa3, promesa4])
+    .then(result => console.log(result))
+    .catch(err => console.log(err.message))
