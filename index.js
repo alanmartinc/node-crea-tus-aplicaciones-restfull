@@ -1,8 +1,9 @@
-var start = new Date(2023, 00, 01);
-var end = new Date(2024, 00, 01);
+const express = require('express');
 
-var miliSegundosDia = 24*60*60*1000;
+const app = express();
 
-var resultado = (end-start)/miliSegundosDia;
+app.get('/', function(req, res) {
+    res.send('Hello World');
+});
 
-console.log(resultado);
+app.listen(3003)
