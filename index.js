@@ -16,4 +16,8 @@ app.get('/api/cars/id/:id', (req, res) => {
     res.send(req.params.id);
 });
 
+app.get('/api/cars/:company/:model', (req, res) => {
+    res.send(req.params);
+});
+
 app.listen(port, () => console.log('Escuchando puerto: ' + port));
