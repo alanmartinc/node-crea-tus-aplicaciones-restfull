@@ -6,4 +6,8 @@ app.get('/', function(req, res) {
     res.send('Hello World');
 });
 
-app.listen(3003)
+app.get('/api/cars/list', (req, res) => {
+    res.send(['BMW S1', 'AUDI A3', 'Mercedes Clase A']);
+});
+
+app.listen(3003, () => console.log('Escuchando puerto 3003...'));
