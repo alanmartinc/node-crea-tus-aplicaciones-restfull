@@ -9,7 +9,11 @@ app.use(express.json());
 app.use(function(req, res, next) {
     console.log('Time: ', Date.now());
     next();
-})
+});
+app.use('/api/cars/list', function(req, res, next) {
+    console.log('Request Type: ', req.method);
+    next();
+});
 
 var coches = [
     {id: 0, company: 'BMW', model: 'X3', year: '2020'  },
