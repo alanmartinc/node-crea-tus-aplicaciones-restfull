@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+
+const car = require('./routes/car');
+app.use(express.json());
+app.use('/api/cars/', car);
+
 const port = process.env.PORT || 3003;
-const { body, validationResult, check } = require('express-validator');
 const date = require('./module/date');
 const morgan = require('morgan');
-
-app.use(express.json());
 
 // Middleware de Express
 app.use(morgan('tiny'));
