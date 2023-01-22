@@ -54,4 +54,21 @@ app.post('/api/cars', (req, res) => {
     res.status(201).send(coche);
 });
 
+app.post('/api/cars2', (req, res) => {
+    if(!req.body.company || req.body.company.length < 3) {
+        res.status(400).send('Introduce la empresa correcta')
+        return
+    }
+
+    var carId = coches.length;
+    var coche = {
+        id: carId,
+        company: req.body.company,
+        model: req.body.model,
+        year: req.body.year
+    }
+    coches.push(coche);
+    res.status(201).send(coche);
+});
+
 app.listen(port, () => console.log('Escuchando puerto: ' + port));
