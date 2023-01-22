@@ -43,7 +43,7 @@ app.get('/api/cars/:company', (req, res) => {
 });
 
 // Metodo POST
-app.post('/api/cars', (req, res) => {
+app.post('/api/cars1', (req, res) => {
     var carId = coches.length;
     var coche = {
         id: carId,
@@ -115,6 +115,19 @@ app.put('/api/cars/:id', [
     coche.year = req.body.year
 
     res.status(204).send();
+});
+
+// Metodo DELETE
+app.delete('/api/cars/:id', (req, res) => {
+    const coche = coches.find(coche => coche.id === parseInt(req.params.id));
+
+    if(!coche) {
+        return res.status(404).send('El coche con ese ID no esta, no se puede borrar');
+    }
+
+    const index = coches.indexOf(coche);
+    coches.splice(index, 1);
+    res.status(200).send('Coche borrado!');
 });
 
 app.listen(port, () => console.log('Escuchando puerto: ' + port));
