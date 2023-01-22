@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3003;
 
+app.use(express.json());
+
 var coches = [
     {id: 0, company: 'BMW', model: 'X3', year: '2020'  },
     {id: 1, company: 'Audi', model: 'A1', year: '2021'  },
     {id: 2, company: 'Mercedes', model: 'Clase A', year: '2022'  }
 ];
 
+// Metodo GET
 app.get('/', function(req, res) {
     res.send('Hello World');
 });
@@ -36,6 +39,19 @@ app.get('/api/cars/:company', (req, res) => {
     } else {
         res.send(coche);
     }
+});
+
+// Metodo POST
+app.post('/api/cars', (req, res) => {
+    var carId = coches.length;
+    var coche = {
+        id: carId,
+        company: req.body.company,
+        model: req.body.model,
+        year: req.body.year
+    }
+    coches.push(coche);
+    res.send(coche);
 });
 
 app.listen(port, () => console.log('Escuchando puerto: ' + port));
