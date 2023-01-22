@@ -5,6 +5,12 @@ const { body, validationResult, check } = require('express-validator');
 
 app.use(express.json());
 
+// Middleware
+app.use(function(req, res, next) {
+    console.log('Time: ', Date.now());
+    next();
+})
+
 var coches = [
     {id: 0, company: 'BMW', model: 'X3', year: '2020'  },
     {id: 1, company: 'Audi', model: 'A1', year: '2021'  },
